@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bongoye.faceRecognition.ui.mainController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#openImage" text="Open Image" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.21492204899777284" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane fx:id="f" maxWidth="300.0" minWidth="300.0" prefWidth="300.0">
+               <children>
+                  <VBox fx:id="v" alignment="CENTER" layoutY="198.0" onDragDropped="#drop" onDragOver="#dragOver" prefHeight="371.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: #eeeeee;">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="121.0" text="Drop image here" textAlignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink onAction="#openImage" text="Select Image" textAlignment="CENTER" />
+                     </children></VBox>
+                  <ImageView fx:id="selectedImage" fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="69.0" layoutY="27.0" text="Selected Image : " textFill="#751199">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        <AnchorPane minWidth="500.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="25.0" text="Recognized Image : " textFill="#751199">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="recognizedImage" fitHeight="383.0" fitWidth="482.0" layoutX="14.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" />
+                  <MenuButton fx:id="fOption" layoutX="156.0" layoutY="56.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="frontal face">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+                  <Label layoutX="14.0" layoutY="56.0" prefHeight="25.0" prefWidth="121.0" text="Change cascade" textFill="#7834ff" />
+               </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>
